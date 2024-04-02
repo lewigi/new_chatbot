@@ -9,31 +9,44 @@ body {
     bottom: 20px;
     right: 20px;
     z-index: 9999; /* Ensure button appears above other content */
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    padding: 14px 24px;
+    background-color: #dbc688;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .chatbot-interface.visible {
-    display: block;
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    /*align-items: center;*/
+    align-items: stretch;
+    padding: 20px;
+    background-color: #dbc688; /* Or any other color you prefer */
 }
 
 .chatbot-interface {
     position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 300px; /* Adjust based on your preference */
-    height: 400px; /* Adjust based on your preference */
+    bottom: 20px; /* Adjust based on your preference */
+    right: 20px; /* Adjust based on your preference */
+    width: 350px; /* Adjust based on your preference */
+    height: 500px; /* Adjust based on your preference */
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border-radius: 10px 10px 0 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Slightly larger shadow for floating effect */
+    border-radius: 10px 10px 10px 10px;
     overflow: hidden;
     display: none; /* Initially hidden */
     flex-direction: column;
+    z-index: 1000; /* Ensure it's above other content */
 }
+
 
 .chat-container {
     flex-grow: 1;
@@ -43,8 +56,10 @@ body {
 }
 
 .input-container {
-    padding: 10px;
-    background: #f0f0f0;
+    display: flex; /* Ensure flexbox layout */
+    align-items: stretch; /* Stretch items vertically */
+    padding: 20px;
+    background: #fff;
 }
 
 /* General styling for all message containers */
@@ -63,11 +78,12 @@ body {
 }
 
 .bot-message {
-    background-color: #4CAF50;
+    background-color: #b8a67b;
     color: white;
     border-radius: 10px;
     padding: 8px 12px;
     max-width: 70%;
+    float: left;
     justify-content: flex-start; /* This will not work here, need to adjust the container */
 }
 
@@ -75,13 +91,6 @@ body {
 
 .text-user {
     color: #000; /* Optional: specific text styling for user messages */
-}
-
-/* Bot message styling */
-.bot-message {
-    background-color: #4CAF50;
-    color: white;
-    float: left; /* Align to the left */
 }
 
 .text-bot {
@@ -100,13 +109,45 @@ body {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-right: 8px; /* Optional: Add some space between input and button */
 }
 
 .send-button {
     padding: 8px 20px;
-    background-color: #4CAF50;
+    background-color: #dbc688;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 20px;
+}
+
+.close-chatbot-btn {
+    background-color: transparent; /* Make the button's background transparent */
+    color: #333; /* Icon color, choose what fits your design */
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: 20px; /* Adjust icon size */
+}
+
+/* Adjustments for better accessibility and feedback */
+.close-chatbot-btn:hover,
+.close-chatbot-btn:focus {
+    color: #666; /* Darker shade on hover/focus for better visibility */
+    outline: none; /* Remove focus outline, add custom styling if needed */
+}
+
+
+.chatbot-header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.header-text {
+    font-size: 18px; /* Adjust font size */
+    color: #333; /* Optionally change the color */
+    display: flex;
+    width: 100%;
 }

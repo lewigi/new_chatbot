@@ -22,10 +22,27 @@ function appendMessage(message, sender) {
     chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to bottom
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Attach event listener to the close button
+    document.getElementById('close-chatbot-btn').addEventListener('click', function() {
+        toggleChatbot(); // Reuse the toggleChatbot function to close the chat
+    });
+});
+
 function toggleChatbot() {
-    var chatbotInterface = document.getElementById('chatbot-interface');
-    chatbotInterface.classList.toggle('visible');
+    var chatInterface = document.getElementById('chatbot-interface');
+    var toggleBtn = document.getElementById('toggle-chatbot-btn');
+    if (chatInterface.classList.contains('visible')) {
+        chatInterface.classList.remove('visible'); // Hide chat
+        toggleBtn.style.display = 'block'; // Show chat button
+    } else {
+        chatInterface.classList.add('visible'); // Show chat
+        toggleBtn.style.display = 'none'; // Hide chat button
+    }
 }
+
+// Keep your existing appendMessage and sendMessage functions as they are.
+
 
 
 
