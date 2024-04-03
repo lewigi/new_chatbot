@@ -1,6 +1,3 @@
-version: "2.0"
-
-nlu:
 ## intent: greet
 - hey
 - hello
